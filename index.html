@@ -6,106 +6,8 @@
   <!-- Boxicons CSS -->
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <title>Blux Website</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Poppins', sans-serif; background: #fff; }
-
-    /* Pre Header */
-    .pre {
-      width: 100%;
-      height: 25px;
-      background-color: black;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 13px;
-      color: white;
-      border-bottom: 1px solid #ddd;
-    }
-    #typing { font-weight: 600; }
-
-    /* First Header */
-    .first { display: flex; justify-content: right; margin-top: 5px; margin-right: 50px; }
-    .first-nav { display: flex; gap: 30px; font-size: 13px; list-style: none; }
-    .first-nav a { text-decoration: none; color: #575757; font-size: 13px; }
-
-    /* Second Header */
-    .logo { width: 100px; margin-left: 20px; }
-    .second {
-      display: flex; justify-content: space-between; align-items: center;
-      border-radius: 15px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-      margin: 5px 30px; padding: 6px 0;
-    }
-    .second-nav { display: flex; gap: 30px; list-style: none; margin: 0 20px; }
-    .second-nav a { color: #575757; text-decoration: none; font-size: 13px; }
-    .icons ul { display: flex; gap: 20px; margin-right: 50px; list-style: none; font-size: 18px; }
-    .bx { color: #58d240; }
-    .special {
-      font-size: 18px; font-weight: bold;
-      background: linear-gradient(to right, #010101, #58d240, #575757);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    /* ===== Slider Styling ===== */
-    main { display: flex; justify-content: center; margin-top: 40px; }
-    .app {
-      position: relative;
-      width: 100%;
-      max-width: 900px;
-      height: 500px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .cardList {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-    }
-    .card {
-      position: absolute;
-      width: 400px;
-      height: 500px;
-      border-radius: 20px;
-      overflow: hidden;
-      transition: all 0.5s ease;
-      transform: scale(0.8);
-      opacity: 0.6;
-    }
-    .card.active {
-      transform: scale(1);
-      opacity: 1;
-      z-index: 2;
-    }
-    .card img { width: 100%; height: 100%; object-fit: cover; }
-
-    /* Buttons */
-    .cardList_btn {
-      --btn-size: 40px;
-      width: var(--btn-size);
-      height: var(--btn-size);
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0, 0, 0, 0.3);
-      color: #fff;
-      font-size: 20px;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      z-index: 10;
-      transition: 0.3s;
-    }
-    .cardList_btn:hover { background: rgba(0,0,0,0.6); }
-    .cardList_btn.btn-left { left: -60px; }
-    .cardList_btn.btn-right { right: -60px; }
-  </style>
 </head>
 <body>
 
@@ -163,54 +65,37 @@
       <button class="cardList_btn btn-left">&#10094;</button>
       <button class="cardList_btn btn-right">&#10095;</button>
     </div>
+    </div>
   </main>
-
+<main class="second-main">
+      <div class="heading">
+        THESE ARE ALL OUR CATEGORIES 
+      </div>
+      <div class="categories">
+        <div class="box">
+          <img src="images/11.webp" alt="">
+          <h3>Smart Watches</h3>
+        </div>
+        <div class="box">
+          <img src="images/174.webp" alt="">
+          <h3>Audio & Buds</h3>
+        </div>
+        <div class="box">
+          <img src="images/370-1.webp" alt="">
+          <h3>Charging Cables</h3>
+        </div>
+        <div class="box">
+          <img src="images/623_1970dfa0-3bd0-4a11-b936-765299fa1860.webp" alt="">
+          <h3>Accessories</h3>
+        </div>
+        <div class="box">
+          <img src="images/70.webp" alt="">
+          <h3>Accessories</h3>
+        </div>
+      </div>
+</main>
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-  <script>
-    // Typing Effect
-    new Typed("#typing", {
-      strings: [
-        "Best Quality : Handpicked accessories crafted for durability and excellence",
-        "Luxury Experience : Elevate your lifestyle with our premium gadgets",
-        "Unique Innovation : Cutting-Edge designs that set you apart",
-        "Keen Performance : Optimized for top-tier functionality and efficiency"
-      ],
-      typeSpeed: 40,
-      backSpeed: 20,
-      backDelay: 1500,
-      loop: true
-    });
-
-    // Card Slider
-    const cards = document.querySelectorAll(".card");
-    const nextBtn = document.querySelector(".btn-right");
-    const prevBtn = document.querySelector(".btn-left");
-    let activeIndex = 0;
-
-    function updateCards() {
-      cards.forEach((card, index) => {
-        card.classList.remove("active");
-        if (index === activeIndex) {
-          card.classList.add("active");
-        }
-        card.style.transform = `translateX(${(index - activeIndex) * 320}px) scale(${index === activeIndex ? 1 : 0.8})`;
-        card.style.opacity = index === activeIndex ? 1 : 0.5;
-        card.style.zIndex = index === activeIndex ? 2 : 1;
-      });
-    }
-
-    nextBtn.addEventListener("click", () => {
-      activeIndex = (activeIndex + 1) % cards.length;
-      updateCards();
-    });
-
-    prevBtn.addEventListener("click", () => {
-      activeIndex = (activeIndex - 1 + cards.length) % cards.length;
-      updateCards();
-    });
-
-    updateCards();
-  </script>
+<script src="app.js"></script>
 </body>
 </html>
